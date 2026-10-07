@@ -47,4 +47,8 @@ public class FlagService {
         flag.setEnabled(enabled);
         return flagRepository.save(flag);
     }
+    public void delete(UUID flagId) {
+        getById(flagId);
+        flagRepository.deleteById(flagId);
+    }
 }

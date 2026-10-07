@@ -48,4 +48,9 @@ public class FlagController {
     public Flag setState(@PathVariable UUID flagId, @Valid @RequestBody UpdateFlagStateRequest request) {
         return flagService.setEnabled(flagId, request.enabled());
     }
+    @DeleteMapping("/flags/{flagId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable UUID flagId) {
+        flagService.delete(flagId);
+    }
 }
